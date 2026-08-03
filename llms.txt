@@ -1,0 +1,31 @@
+# Vocollision
+
+> Premier competitive a cappella group at New York University (NYU) in New York City.
+
+Vocollision is an inventive, diverse collegiate a cappella group founded in 2008. The group is ICCA-recognized and available for booking, collaborations, and auditions.
+
+## Site
+
+- Home: https://vocollision.com/
+- About: https://vocollision.com/about/
+- NYU a cappella guide: https://vocollision.com/nyu-acapella/
+- Book / hire: https://vocollision.com/book-us/
+- Contact: https://vocollision.com/contact/
+- Auditions: https://vocollision.com/audition/
+
+## Contact
+
+- Booking & general: nyu.vocollision@gmail.com
+- Location: New York University, New York City, NY, USA
+
+## Key facts
+
+- Type: Competitive collegiate a cappella / MusicGroup
+- School: New York University (NYU)
+- Founded: 2008
+- Known for: Inventive sets, diverse repertoire, ICCA awards, NYC performances
+- Open to: All voice parts and beatboxers (auditions)
+
+## Optional
+
+- Full details: https://vocollision.com/llms-full.txt

@@ -1,0 +1,2 @@
+import{t as e}from"./rolldown-runtime.CMAw1HyY.mjs";import{C as t,I as n,M as r,R as i,c as a,k as o,o as s}from"./react.D28hPraA.mjs";import{K as c,a as l}from"./framer.C9pk__QF.mjs";function u(){return r(()=>{i.location.href=`https://partiful.com/e/wVZMmk4ntQUDpSPrVrER?c=imzcKbD4`},[]),{}}function d(e){return t=>(o(l),a(e,{...t,...u(t)}))}var f=e((()=>{n(),s(),t(),c(),d.displayName=`useRedirect`}));export{d as n,f as t};
+//# sourceMappingURL=Icebreaker_redirect.D79fGPPI.mjs.map

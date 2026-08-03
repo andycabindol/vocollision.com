@@ -1,0 +1,11 @@
+/* Performance / ICCA video cards — force pointer cursor */
+html body a[href*="youtu.be"],
+html body a[href*="youtu.be"] *,
+html body a[href*="youtube.com"],
+html body a[href*="youtube.com"] *,
+.framer-cursor-none a[href*="youtu.be"],
+.framer-cursor-none a[href*="youtu.be"] *,
+.framer-cursor-none a[href*="youtube.com"],
+.framer-cursor-none a[href*="youtube.com"] * {
+  cursor: pointer !important;
+}

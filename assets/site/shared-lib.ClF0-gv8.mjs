@@ -1,0 +1,2 @@
+import{t as e}from"./rolldown-runtime.CMAw1HyY.mjs";function t(e,t){return{description:`Vocollision is a competitive acapella group from NYU taking the next step towards the new sonic of modern acapella.`,favicon:`/assets/images/46uiWfhXE7tMVfk7wmng3AZHQ.png`,robots:`max-image-preview:large`,socialImage:`/assets/images/z30teL0Z4uAwjrPyTYiwMwH2w.jpg`,title:`NYU Vocollision Competitive Acapella Group at New York University`}}var n=e((()=>{}));export{t as n,n as t};
+//# sourceMappingURL=shared-lib.ClF0-gv8.mjs.map
