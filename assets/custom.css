@@ -37,9 +37,73 @@
   }
 }
 
-.framer-7xVzg [data-framer-name="Audition Card 2"] a {
-  pointer-events: none;
+/* Hide stray gallery photos that Framer places after the footer */
+.framer-7xVzg > .framer-1d1tco0,
+.framer-7xVzg > .framer-flhxgp,
+.framer-7xVzg > .framer-1kc6web,
+.framer-7xVzg > .framer-17l34qj,
+.framer-kbpm5z ~ .framer-1d1tco0,
+.framer-kbpm5z ~ .framer-flhxgp,
+.framer-kbpm5z ~ .framer-1kc6web,
+.framer-kbpm5z ~ .framer-17l34qj,
+.framer-kbpm5z ~ .ssr-variant:has(img[src*=".jpg"]),
+.framer-kbpm5z ~ .ssr-variant:has(img[src*=".jpeg"]) {
+  display: none !important;
+}
+
+/* Audition gallery lightbox */
+.framer-8779ag [data-framer-background-image-wrapper],
+.framer-8779ag img,
+[data-framer-name="Content Section "] [data-framer-background-image-wrapper],
+[data-framer-name="Content Section "] img {
+  cursor: pointer !important;
+}
+
+html.voco-lightbox-open,
+html.voco-lightbox-open body {
+  overflow: hidden;
+}
+
+.voco-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px 24px;
+  background: rgba(0, 0, 0, 0.88);
+  cursor: pointer;
+}
+.voco-lightbox[hidden] {
+  display: none !important;
+}
+.voco-lightbox-image {
+  max-width: min(1100px, calc(100vw - 48px));
+  max-height: calc(100vh - 96px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
   cursor: default;
+  box-shadow: 0 16px 60px rgba(0, 0, 0, 0.45);
+}
+.voco-lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+}
+.voco-lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.22);
 }
 
 /* Performance / ICCA video cards — force pointer cursor */
