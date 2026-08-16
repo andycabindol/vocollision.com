@@ -8,9 +8,8 @@ Vocollision is an inventive, diverse collegiate a cappella group founded in 2008
 
 - Home: https://vocollision.com/
 - About: https://vocollision.com/about/
-- NYU a cappella guide: https://vocollision.com/nyu-acapella/
-- Book / hire: https://vocollision.com/book-us/
-- Contact: https://vocollision.com/contact/
+- NYC a cappella guide: https://vocollision.com/nyc-acapella/
+- Contact / booking: https://vocollision.com/contact/
 - Auditions: https://vocollision.com/audition/
 
 ## Contact

@@ -1,3 +1,112 @@
+/* Site nav used on custom landing pages — matches Framer header */
+.voco-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 40px;
+  background: #000;
+  font-family: Inter, system-ui, sans-serif;
+  position: relative;
+  z-index: 20;
+}
+.voco-nav-logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.voco-nav-logo img {
+  height: 26px;
+  width: auto;
+  display: block;
+}
+.voco-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-left: auto;
+}
+.voco-nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 24px;
+}
+.voco-nav-links a:hover {
+  opacity: 0.85;
+}
+.voco-nav-cta {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  padding: 0 22px;
+  background: #fff;
+  color: #000 !important;
+  border-radius: 999px;
+  font-weight: 600 !important;
+}
+.voco-nav-cta:hover {
+  opacity: 0.92;
+}
+.voco-nav-toggle {
+  display: none;
+  width: 56px;
+  height: 56px;
+  border: 0;
+  border-radius: 999px;
+  background: #fff;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+}
+.voco-nav-toggle span {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  height: 2px;
+  background: #000;
+  border-radius: 1px;
+}
+.voco-nav-toggle span:first-child { top: 24px; }
+.voco-nav-toggle span:last-child { top: 30px; }
+.voco-nav.is-open .voco-nav-toggle span:first-child {
+  top: 27px;
+  transform: rotate(45deg);
+}
+.voco-nav.is-open .voco-nav-toggle span:last-child {
+  top: 27px;
+  transform: rotate(-45deg);
+}
+@media (max-width: 1023.98px) {
+  .voco-nav { padding: 16px 20px; }
+  .voco-nav-toggle { display: block; }
+  .voco-nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 16px 20px 28px;
+    background: #000;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .voco-nav.is-open .voco-nav-links { display: flex; }
+  .voco-nav-links a {
+    padding: 14px 8px;
+    font-size: 18px;
+  }
+  .voco-nav-cta {
+    height: 48px;
+    margin-top: 8px;
+    width: 100%;
+  }
+}
+
 /* Performance / ICCA video cards — force pointer cursor */
 html body a[href*="youtu.be"],
 html body a[href*="youtu.be"] *,

@@ -44,17 +44,11 @@ PAGE_SEO = {
         "canonical": f"{BASE}/audition/",
         "og_type": "website",
     },
-    "nyu-acapella/index.html": {
-        "title": "NYU A Cappella Groups | Why Vocollision Stands Out",
-        "description": "Looking for NYU a cappella groups? Meet Vocollision — a competitive, ICCA-recognized a cappella group at New York University known for inventive sets.",
-        "canonical": f"{BASE}/nyu-acapella/",
+    "nyc-acapella/index.html": {
+        "title": "NYC A Cappella Groups | Why Vocollision Stands Out",
+        "description": "Looking for NYC a cappella groups? Meet Vocollision — a competitive, ICCA-recognized a cappella group in New York City known for inventive sets.",
+        "canonical": f"{BASE}/nyc-acapella/",
         "og_type": "article",
-    },
-    "book-us/index.html": {
-        "title": "Book an NYC A Cappella Group | Vocollision for Hire",
-        "description": "Book Vocollision for your NYC event. Competitive NYU a cappella available for corporate events, campus shows, weddings, and private bookings.",
-        "canonical": f"{BASE}/book-us/",
-        "og_type": "website",
     },
     "404.html": {
         "title": "Page Not Found | Vocollision NYU A Cappella",
@@ -106,7 +100,7 @@ def music_group_jsonld() -> dict:
                 "@type": "ContactPoint",
                 "contactType": "booking",
                 "email": "nyu.vocollision@gmail.com",
-                "url": f"{BASE}/book-us/",
+                "url": f"{BASE}/contact/",
                 "availableLanguage": ["English"],
             },
             {
@@ -169,36 +163,36 @@ def faq_jsonld(faqs: list[tuple[str, str]]) -> dict:
     }
 
 
-NYU_FAQS = [
+NYC_FAQS = [
     (
-        "What are the best NYU a cappella groups?",
-        "NYU has several a cappella groups. Vocollision is a premier competitive group known for inventive, "
+        "What are the best NYC a cappella groups?",
+        "New York City has several collegiate and professional a cappella groups. Vocollision is a premier competitive group known for inventive, "
         "diverse sets and ICCA recognition, blending classic pop with lesser-known artists.",
     ),
     (
-        "Is Vocollision a competitive NYU a cappella group?",
-        "Yes. Vocollision is a competitive collegiate a cappella group at New York University and has been "
+        "Is Vocollision a competitive NYC a cappella group?",
+        "Yes. Vocollision is a competitive collegiate a cappella group based in New York City and has been "
         "recognized by the International Championships of Collegiate A Cappella (ICCA).",
     ),
     (
-        "How do I join an NYU a cappella group?",
+        "How do I join an NYC a cappella group?",
         "Vocollision holds auditions for all voice parts and beatboxers. Visit the audition page on vocollision.com "
         "to apply or learn about upcoming audition seasons.",
     ),
     (
         "Where is Vocollision based?",
-        "Vocollision is based at New York University in New York City and performs across NYC and collegiate a cappella circuits.",
+        "Vocollision is based in New York City and performs across NYC and collegiate a cappella circuits.",
     ),
 ]
 
 BOOK_FAQS = [
     (
-        "Can I book an NYU a cappella group for an event in NYC?",
+        "Can I book an NYC a cappella group for an event in NYC?",
         "Yes. Vocollision is available for booking for campus events, corporate shows, private events, and collaborations in New York City.",
     ),
     (
         "How do I book Vocollision?",
-        "Use the booking form on vocollision.com/book-us/ or vocollision.com/contact/, or email nyu.vocollision@gmail.com with your event date, location, and details.",
+        "Use the contact form on vocollision.com/contact/, or email nyu.vocollision@gmail.com with your event date, location, and details.",
     ),
     (
         "What types of events does Vocollision perform at?",
@@ -340,10 +334,8 @@ def main() -> None:
             print(f"skip missing {rel}")
             continue
         extra: list[dict] = []
-        if rel == "nyu-acapella/index.html":
-            extra.append(faq_jsonld(NYU_FAQS))
-        if rel == "book-us/index.html":
-            extra.append(faq_jsonld(BOOK_FAQS))
+        if rel == "nyc-acapella/index.html":
+            extra.append(faq_jsonld(NYC_FAQS))
         if rel == "contact/index.html":
             extra.append(faq_jsonld(BOOK_FAQS[:2]))
         apply_seo(path, seo, extra)

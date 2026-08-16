@@ -6,12 +6,7 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://vocollision.com/nyu-acapella/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.95</priority>
-  </url>
-  <url>
-    <loc>https://vocollision.com/book-us/</loc>
+    <loc>https://vocollision.com/nyc-acapella/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
