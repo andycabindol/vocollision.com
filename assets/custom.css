@@ -1,110 +1,45 @@
-/* Site nav used on custom landing pages — matches Framer header */
-.voco-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 20px 40px;
+/* Keep the Framer navbar full-width on custom landing pages */
+.voco-framer-nav {
   background: #000;
+  width: 100%;
+}
+.voco-framer-nav .framer-PX2mP,
+.voco-framer-nav .framer-q2xutr,
+.voco-framer-nav .framer-1u2x0js,
+.voco-framer-nav .framer-FEfmZ.framer-f526u0 {
+  width: 100% !important;
+  max-width: none;
+}
+.voco-framer-nav .framer-1u2x0js {
+  max-width: 1356px;
+  margin: 0 auto;
+}
+.voco-framer-nav p.framer-text {
   font-family: Inter, system-ui, sans-serif;
-  position: relative;
-  z-index: 20;
-}
-.voco-nav-logo {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-}
-.voco-nav-logo img {
-  height: 26px;
-  width: auto;
-  display: block;
-}
-.voco-nav-links {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  margin-left: auto;
-}
-.voco-nav-links a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
-  line-height: 24px;
 }
-.voco-nav-links a:hover {
-  opacity: 0.85;
-}
-.voco-nav-cta {
-  display: inline-flex !important;
-  align-items: center;
-  justify-content: center;
-  height: 56px;
-  padding: 0 22px;
-  background: #fff;
-  color: #000 !important;
-  border-radius: 999px;
-  font-weight: 600 !important;
-}
-.voco-nav-cta:hover {
-  opacity: 0.92;
-}
-.voco-nav-toggle {
-  display: none;
-  width: 56px;
-  height: 56px;
-  border: 0;
-  border-radius: 999px;
-  background: #fff;
-  cursor: pointer;
-  position: relative;
-  flex-shrink: 0;
-}
-.voco-nav-toggle span {
-  position: absolute;
-  left: 18px;
-  right: 18px;
-  height: 2px;
-  background: #000;
-  border-radius: 1px;
-}
-.voco-nav-toggle span:first-child { top: 24px; }
-.voco-nav-toggle span:last-child { top: 30px; }
-.voco-nav.is-open .voco-nav-toggle span:first-child {
-  top: 27px;
-  transform: rotate(45deg);
-}
-.voco-nav.is-open .voco-nav-toggle span:last-child {
-  top: 27px;
-  transform: rotate(-45deg);
+
+/* Two audition cards side by side */
+.framer-7xVzg .framer-numz4a {
+  flex-wrap: wrap !important;
+  width: 100% !important;
+  max-width: 100%;
+  overflow: visible !important;
 }
 @media (max-width: 1023.98px) {
-  .voco-nav { padding: 16px 20px; }
-  .voco-nav-toggle { display: block; }
-  .voco-nav-links {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    margin: 0;
-    padding: 16px 20px 28px;
-    background: #000;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
+  .framer-7xVzg .framer-numz4a {
+    flex-direction: column !important;
   }
-  .voco-nav.is-open .voco-nav-links { display: flex; }
-  .voco-nav-links a {
-    padding: 14px 8px;
-    font-size: 18px;
+  .framer-7xVzg .framer-1apr3wo {
+    width: 100% !important;
+    min-width: 0 !important;
   }
-  .voco-nav-cta {
-    height: 48px;
-    margin-top: 8px;
-    width: 100%;
-  }
+}
+
+.framer-7xVzg [data-framer-name="Audition Card 2"] a {
+  pointer-events: none;
+  cursor: default;
 }
 
 /* Performance / ICCA video cards — force pointer cursor */
