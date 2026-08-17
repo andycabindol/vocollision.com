@@ -2,11 +2,13 @@
  * Keep internal Framer links on vocollision.com.
  *
  * Framer emits relative hrefs like "./about". On GitHub Pages the URL is
- * /audition/, so the browser resolves that to /audition/about and the
- * client router then falls back to Home.
+ * /audition/, so the browser resolves that to /audition/about.
+ *
+ * Do not rewrite the DOM during hydration — that fights React, freezes
+ * appear animations, and leaves the page blank after the first flash.
  */
 (function () {
-  var CANONICAL = {
+  var PAGES = {
     "/": "/",
     "/about": "/about/",
     "/audition": "/audition/",
@@ -15,84 +17,46 @@
     "/spaceset": "/spaceset/",
   };
 
-  var LABELS = {
-    home: "/",
-    about: "/about/",
-    audition: "/audition/",
-    contact: "/contact/",
-    "contact us": "/contact/",
-  };
+  function stripSlash(path) {
+    return (path || "/").replace(/\/+$/, "") || "/";
+  }
 
-  function knownPath(path) {
-    var clean = (path || "/").replace(/\/+$/, "") || "/";
-    if (Object.prototype.hasOwnProperty.call(CANONICAL, clean)) {
-      return CANONICAL[clean];
-    }
+  function canonicalPath(path) {
+    var clean = stripSlash(path);
+    if (Object.prototype.hasOwnProperty.call(PAGES, clean)) return PAGES[clean];
     var parts = clean.split("/").filter(Boolean);
-    if (!parts.length) return null;
+    if (parts.length < 2) return null;
     var last = "/" + parts[parts.length - 1];
-    if (parts.length >= 2 && Object.prototype.hasOwnProperty.call(CANONICAL, last) && last !== "/") {
-      return CANONICAL[last];
+    if (last !== "/" && Object.prototype.hasOwnProperty.call(PAGES, last)) {
+      return PAGES[last];
     }
     return null;
   }
 
-  function canonicalFromHref(href) {
+  function resolve(href) {
     if (!href || href.charAt(0) === "#") return null;
     try {
       var u = new URL(href, location.href);
       if (u.origin !== location.origin) return null;
-      var next = knownPath(u.pathname);
+      var next = canonicalPath(u.pathname);
       return next ? next + u.search + u.hash : null;
     } catch (e) {
       return null;
     }
   }
 
-  function canonicalFromLink(a) {
-    var fromHref = canonicalFromHref(a.getAttribute("href"));
-    if (fromHref) return fromHref;
-    var label = (a.textContent || "").replace(/\s+/g, " ").trim().toLowerCase();
-    var fromLabel = LABELS[label];
-    if (!fromLabel) return null;
-    try {
-      var u = new URL(a.getAttribute("href") || "/", location.href);
-      if (u.origin !== location.origin) return null;
-    } catch (e) {
-      return null;
+  function currentUrl() {
+    return location.pathname + location.search + location.hash;
+  }
+
+  // /audition/about → /about/ (and the same for other nested mistakes)
+  var nested = canonicalPath(location.pathname);
+  if (nested) {
+    var here = stripSlash(location.pathname) === "/" ? "/" : stripSlash(location.pathname) + "/";
+    if (here !== "/" && here !== nested) {
+      location.replace(nested + location.search + location.hash);
+      return;
     }
-    return fromLabel;
-  }
-
-  function samePage(next) {
-    return next === location.pathname + location.search + location.hash;
-  }
-
-  function redirectNestedMistake() {
-    var next = knownPath(location.pathname);
-    if (!next) return;
-    var current = (location.pathname.replace(/\/+$/, "") || "/") + "/";
-    if (current === "/" || current === next) return;
-    location.replace(next + location.search + location.hash);
-  }
-
-  function normalizeLinks() {
-    var links = document.querySelectorAll("a[href]");
-    for (var i = 0; i < links.length; i++) {
-      var a = links[i];
-      var next = canonicalFromLink(a);
-      if (next && a.getAttribute("href") !== next) a.setAttribute("href", next);
-    }
-  }
-
-  function go(next, e) {
-    if (!next || samePage(next)) return false;
-    if (e) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-    location.assign(next);
-    return true;
   }
 
   document.addEventListener(
@@ -102,29 +66,12 @@
       if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
       var a = e.target && e.target.closest ? e.target.closest("a[href]") : null;
       if (!a) return;
-      go(canonicalFromLink(a), e);
+      var next = resolve(a.getAttribute("href"));
+      if (!next || next === currentUrl()) return;
+      e.preventDefault();
+      e.stopPropagation();
+      location.assign(next);
     },
     true
   );
-
-  redirectNestedMistake();
-
-  function start() {
-    normalizeLinks();
-    var obs = new MutationObserver(function () {
-      normalizeLinks();
-    });
-    obs.observe(document.documentElement, {
-      childList: true,
-      subtree: true,
-      attributes: true,
-      attributeFilter: ["href"],
-    });
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", start);
-  } else {
-    start();
-  }
 })();
