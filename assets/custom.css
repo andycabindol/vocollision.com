@@ -20,26 +20,21 @@
   font-weight: 500;
 }
 
-/* Auditions are closed: remove the home callout and show a simple status card. */
+/* Auditions are closed: remove the home callout and virtual-audition card. */
 .framer-zceti a[data-framer-name="Availability"][href="/audition/"] {
   display: none !important;
 }
 .framer-17809nu[data-framer-name="Audition Card 1"] {
-  align-items: center !important;
-  justify-content: center !important;
-  min-height: 180px;
-}
-.framer-17809nu[data-framer-name="Audition Card 1"] > * {
   display: none !important;
 }
-.framer-17809nu[data-framer-name="Audition Card 1"]::before {
-  color: #fff;
-  content: "Coming soon";
-  font-family: Inter, system-ui, sans-serif;
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 1.3;
-  text-align: center;
+.framer-17809nu[data-framer-name="Audition Card 2"] .framer-1pbflrj h4,
+.framer-17809nu[data-framer-name="Audition Card 2"] .framer-1mjktxb h6 {
+  font-size: 0 !important;
+}
+.framer-17809nu[data-framer-name="Audition Card 2"] .framer-1pbflrj h4::after,
+.framer-17809nu[data-framer-name="Audition Card 2"] .framer-1mjktxb h6::after {
+  content: "Audition info";
+  font-size: 1.5rem;
 }
 
 /* Two audition cards side by side */
