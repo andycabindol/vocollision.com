@@ -35,7 +35,9 @@
     source.classList.add('voco-roster-source');
     var mobileSource = document.querySelector('.framer-1bmjbq7');
     if (mobileSource) mobileSource.classList.add('voco-roster-source');
-    section.appendChild(grid);
+    var rosterShell = source.closest('.framer-tkzzl5');
+    if (rosterShell) rosterShell.insertAdjacentElement('afterend', grid);
+    else section.appendChild(grid);
   }
 
   function start() {
