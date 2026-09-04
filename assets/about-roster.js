@@ -1,59 +1,48 @@
-/** Keep executive-board members ahead of the regular-member roster. */
+/** Render one responsive roster with board members before regular members. */
 (function () {
   var ROSTER_ORDER = [
-    "Alan Tong",
-    "Liz Manalo",
-    "Sam Morelos",
-    "Julia Heyworth",
-    "Wrenn Cai",
-    "Kaelyn Matsushita",
-    "Leo Cheng",
-    "Katherine Shi",
-    "Sophie Glenn",
-    "Anthony Zhou",
-    "Lori Phun",
-    "Addison Kyrychenko",
-    "Tanvi Heart",
-    "Maya Bhide"
+    "Alan Tong", "Liz Manalo", "Sam Morelos", "Julia Heyworth",
+    "Wrenn Cai", "Kaelyn Matsushita", "Leo Cheng", "Katherine Shi",
+    "Sophie Glenn", "Anthony Zhou", "Lori Phun", "Addison Kyrychenko",
+    "Tanvi Heart", "Maya Bhide"
   ];
 
-  function visibleRosterCards() {
-    var headings = document.querySelectorAll("h6");
-    var cards = [];
-    for (var i = 0; i < headings.length; i++) {
-      var card = headings[i].closest("a");
-      if (!card || !card.getClientRects().length || cards.indexOf(card) !== -1) continue;
-      cards.push(card);
-    }
-    return cards;
-  }
+  function buildRoster() {
+    var section = document.querySelector('[data-framer-name="Team Section"]');
+    var source = document.querySelector('.framer-rdftys');
+    if (!section || !source || section.querySelector('.voco-roster-grid')) return;
 
-  function update() {
-    var cards = visibleRosterCards();
-    if (cards.length !== ROSTER_ORDER.length || cards[0].dataset.vocoRosterUpdated) return;
-
+    var cards = source.querySelectorAll('a[data-framer-name="Tablet"]');
     var contentByName = {};
     for (var i = 0; i < cards.length; i++) {
-      var heading = cards[i].querySelector("h6");
+      var heading = cards[i].querySelector('h6');
       if (heading) contentByName[heading.textContent.trim()] = cards[i].innerHTML;
     }
     if (Object.keys(contentByName).length !== ROSTER_ORDER.length) return;
 
-    // Katherine is now a regular member; Julia holds the Treasurer position.
-    contentByName["Katherine Shi"] = contentByName["Katherine Shi"].replace("Treasurer | Soprano", "Soprano");
+    contentByName['Katherine Shi'] = contentByName['Katherine Shi'].replace('Treasurer | Soprano', 'Soprano');
 
-    for (var j = 0; j < cards.length; j++) {
-      cards[j].innerHTML = contentByName[ROSTER_ORDER[j]];
-      cards[j].dataset.vocoRosterUpdated = "true";
+    var grid = document.createElement('div');
+    grid.className = 'voco-roster-grid';
+    for (var j = 0; j < ROSTER_ORDER.length; j++) {
+      var card = cards[0].cloneNode(false);
+      card.classList.add('voco-roster-card');
+      card.removeAttribute('data-framer-name');
+      card.innerHTML = contentByName[ROSTER_ORDER[j]];
+      grid.appendChild(card);
     }
+
+    source.classList.add('voco-roster-source');
+    var mobileSource = document.querySelector('.framer-1bmjbq7');
+    if (mobileSource) mobileSource.classList.add('voco-roster-source');
+    section.appendChild(grid);
   }
 
   function start() {
-    update();
-    addEventListener("resize", update);
-    new MutationObserver(update).observe(document.documentElement, { childList: true, subtree: true });
+    buildRoster();
+    new MutationObserver(buildRoster).observe(document.documentElement, { childList: true, subtree: true });
   }
 
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start);
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
   else start();
 })();

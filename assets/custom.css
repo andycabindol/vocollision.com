@@ -37,6 +37,42 @@
   font-size: 1.5rem;
 }
 
+/* Responsive team roster: executive board first, then regular members. */
+.voco-roster-source {
+  display: none !important;
+}
+.voco-roster-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 40px auto 0;
+  max-width: 1200px;
+  padding: 0 40px;
+  width: 100%;
+}
+.voco-roster-card {
+  border-radius: 16px;
+  color: inherit;
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  text-decoration: none;
+}
+.voco-roster-card > * {
+  width: 100% !important;
+}
+@media (max-width: 1023.98px) {
+  .voco-roster-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 0 24px;
+  }
+}
+@media (max-width: 639.98px) {
+  .voco-roster-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 /* Two audition cards side by side */
 .framer-7xVzg .framer-numz4a {
   flex-wrap: wrap !important;
