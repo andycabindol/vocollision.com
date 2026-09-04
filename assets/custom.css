@@ -21,7 +21,8 @@
 }
 
 /* Auditions are closed: remove the home callout and virtual-audition card. */
-.framer-zceti a[data-framer-name="Availability"][href="/audition/"] {
+.framer-zceti a[data-framer-name="Availability"][href="/audition/"],
+.framer-zceti a[data-framer-name="Availability"][href="/audition"] {
   display: none !important;
 }
 .framer-17809nu[data-framer-name="Audition Card 1"] {
