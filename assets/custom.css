@@ -20,7 +20,7 @@
   font-weight: 500;
 }
 
-/* Auditions are closed: remove the home callout and virtual-audition card. */
+/* Audition page: present the current details in one focused information card. */
 .framer-zceti a[data-framer-name="Availability"][href="/audition/"],
 .framer-zceti a[data-framer-name="Availability"][href="/audition"] {
   display: none !important;
@@ -28,14 +28,35 @@
 .framer-17809nu[data-framer-name="Audition Card 1"] {
   display: none !important;
 }
-.framer-17809nu[data-framer-name="Audition Card 2"] .framer-1pbflrj h4,
-.framer-17809nu[data-framer-name="Audition Card 2"] .framer-1mjktxb h6 {
-  font-size: 0 !important;
+.framer-7xVzg .framer-numz4a {
+  justify-content: center !important;
 }
-.framer-17809nu[data-framer-name="Audition Card 2"] .framer-1pbflrj h4::after,
-.framer-17809nu[data-framer-name="Audition Card 2"] .framer-1mjktxb h6::after {
-  content: "Audition info";
-  font-size: 1.5rem;
+.framer-17809nu[data-framer-name="Audition Card 2"] {
+  margin-inline: auto;
+  width: min(100%, 960px) !important;
+}
+.framer-17809nu[data-framer-name="Audition Card 2"] .framer-1apr3wo {
+  width: 100% !important;
+}
+.voco-audition-info {
+  color: #fff;
+  display: grid;
+  gap: 28px;
+}
+.voco-audition-info section { display: grid; gap: 12px; }
+.voco-audition-info h5, .voco-audition-info h6, .voco-audition-info p { margin: 0; }
+.voco-audition-info h5 { color: #fff; font-size: 1.35rem; letter-spacing: -.02em; }
+.voco-audition-info h6 { color: #f9d01d; font-size: .8rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.voco-audition-info p, .voco-audition-info li { color: #fff; font-size: 17px; line-height: 1.65; }
+.voco-audition-info .voco-audition-deadline { color: #f9d01d; font-weight: 700; }
+.voco-audition-info .voco-audition-dates { display: grid; gap: 12px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.voco-audition-info .voco-audition-date { background: rgba(255, 255, 255, .1); border-left: 2px solid #f9d01d; border-radius: 0 10px 10px 0; padding: 14px 16px; }
+.voco-audition-info .voco-audition-submit { align-items: center; background: #fff; border-radius: 999px; color: #141718; display: inline-flex; font-weight: 700; justify-content: center; margin-top: 4px; min-height: 48px; padding: 12px 20px; text-decoration: none; transition: transform .2s ease, background-color .2s ease; }
+.voco-audition-info .voco-audition-submit:hover { background: #f9d01d; transform: translateY(-2px); }
+@media (max-width: 600px) {
+  .voco-audition-info .voco-audition-dates { grid-template-columns: 1fr; }
+  .voco-audition-info h5 { font-size: 1.2rem; }
+  .voco-audition-info p, .voco-audition-info li { font-size: 16px; }
 }
 
 /* Responsive team roster: executive board first, then regular members. */

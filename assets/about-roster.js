@@ -51,7 +51,11 @@
     var order = ROSTER_ORDER.filter(function (name) { return !!contentByName[name]; });
     if (Object.keys(contentByName).length !== order.length) return;
 
-    contentByName['Katherine Shi'] = contentByName['Katherine Shi'].replace('Treasurer | Soprano', 'Soprano');
+    // Framer can briefly render an incomplete roster during hydration. Wait for
+    // Katherine's source card rather than building a partial roster or throwing.
+    var katherineContent = contentByName['Katherine Shi'];
+    if (typeof katherineContent !== 'string') return;
+    contentByName['Katherine Shi'] = katherineContent.replace('Treasurer | Soprano', 'Soprano');
 
     var grid = document.createElement('div');
     grid.className = 'voco-roster-grid';
