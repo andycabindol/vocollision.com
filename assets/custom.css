@@ -20,43 +20,78 @@
   font-weight: 500;
 }
 
-/* Audition page: present the current details in one focused information card. */
+/* Audition page: show both Framer cards side by side. */
 .framer-zceti a[data-framer-name="Availability"][href="/audition/"],
 .framer-zceti a[data-framer-name="Availability"][href="/audition"] {
   display: none !important;
 }
-.framer-17809nu[data-framer-name="Audition Card 1"] {
-  display: none !important;
-}
 .framer-7xVzg .framer-numz4a {
   justify-content: center !important;
+  flex-wrap: wrap !important;
+  width: 100% !important;
+  max-width: 100%;
+  overflow: visible !important;
+  gap: 24px !important;
 }
+.framer-17809nu[data-framer-name="Audition Card 1"],
 .framer-17809nu[data-framer-name="Audition Card 2"] {
-  margin-inline: auto;
-  width: min(100%, 960px) !important;
+  flex: 1 1 320px;
+  max-width: min(100%, 520px);
+  width: min(100%, 520px) !important;
 }
+.framer-17809nu[data-framer-name="Audition Card 1"] .framer-1apr3wo,
 .framer-17809nu[data-framer-name="Audition Card 2"] .framer-1apr3wo {
   width: 100% !important;
 }
-.voco-audition-info {
-  color: #fff;
-  display: grid;
-  gap: 28px;
+@media (max-width: 1023.98px) {
+  .framer-7xVzg .framer-numz4a {
+    flex-direction: column !important;
+  }
+  .framer-17809nu[data-framer-name="Audition Card 1"],
+  .framer-17809nu[data-framer-name="Audition Card 2"] {
+    max-width: 100%;
+    width: 100% !important;
+  }
+  .framer-7xVzg .framer-1apr3wo {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
 }
-.voco-audition-info section { display: grid; gap: 12px; }
-.voco-audition-info h5, .voco-audition-info h6, .voco-audition-info p { margin: 0; }
-.voco-audition-info h5 { color: #fff; font-size: 1.35rem; letter-spacing: -.02em; }
-.voco-audition-info h6 { color: #f9d01d; font-size: .8rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
-.voco-audition-info p, .voco-audition-info li { color: #fff; font-size: 17px; line-height: 1.65; }
-.voco-audition-info .voco-audition-deadline { color: #f9d01d; font-weight: 700; }
-.voco-audition-info .voco-audition-dates { display: grid; gap: 12px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.voco-audition-info .voco-audition-date { background: rgba(255, 255, 255, .1); border-left: 2px solid #f9d01d; border-radius: 0 10px 10px 0; padding: 14px 16px; }
-.voco-audition-info .voco-audition-submit { align-items: center; background: #fff; border-radius: 999px; color: #141718; display: inline-flex; font-weight: 700; justify-content: center; margin-top: 4px; min-height: 48px; padding: 12px 20px; text-decoration: none; transition: transform .2s ease, background-color .2s ease; }
-.voco-audition-info .voco-audition-submit:hover { background: #f9d01d; transform: translateY(-2px); }
-@media (max-width: 600px) {
-  .voco-audition-info .voco-audition-dates { grid-template-columns: 1fr; }
-  .voco-audition-info h5 { font-size: 1.2rem; }
-  .voco-audition-info p, .voco-audition-info li { font-size: 16px; }
+
+/* Call out in-person audition times */
+.voco-audition-dates {
+  display: grid;
+  gap: 12px;
+  margin-top: 4px;
+}
+.voco-audition-date {
+  background: rgba(246, 57, 227, 0.1);
+  border-left: 3px solid #f639e3;
+  border-radius: 0 12px 12px 0;
+  display: grid;
+  gap: 4px;
+  padding: 14px 16px;
+}
+.voco-audition-date p {
+  margin: 0;
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.45;
+}
+.voco-audition-date-day {
+  color: #f639e3 !important;
+  font-size: 0.8rem !important;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.voco-audition-date-time {
+  font-size: 1.05rem !important;
+  font-weight: 700;
+}
+.voco-audition-date-place {
+  color: rgba(255, 255, 255, 0.78) !important;
+  font-size: 0.95rem !important;
 }
 
 /* Responsive team roster: executive board first, then regular members. */
@@ -96,23 +131,6 @@
 @media (max-width: 639.98px) {
   .voco-roster-card {
     width: 100%;
-  }
-}
-
-/* Two audition cards side by side */
-.framer-7xVzg .framer-numz4a {
-  flex-wrap: wrap !important;
-  width: 100% !important;
-  max-width: 100%;
-  overflow: visible !important;
-}
-@media (max-width: 1023.98px) {
-  .framer-7xVzg .framer-numz4a {
-    flex-direction: column !important;
-  }
-  .framer-7xVzg .framer-1apr3wo {
-    width: 100% !important;
-    min-width: 0 !important;
   }
 }
 
