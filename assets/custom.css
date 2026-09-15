@@ -20,6 +20,19 @@
   font-weight: 500;
 }
 
+/* Crawlable award list for SEO/AI (visually hidden, still in DOM). */
+.voco-awards-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* Audition page: show both Framer cards side by side. */
 .framer-zceti a[data-framer-name="Availability"][href="/audition/"],
 .framer-zceti a[data-framer-name="Availability"][href="/audition"] {

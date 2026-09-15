@@ -77,7 +77,9 @@ def music_group_jsonld() -> dict:
         "description": (
             "Vocollision is a premier competitive a cappella group at New York University (NYU) "
             "in New York City. Founded in 2008, the group is known for inventive, diverse sets "
-            "and recognition from the International Championships of Collegiate A Cappella (ICCA)."
+            "and recognition from the International Championships of Collegiate A Cappella (ICCA), "
+            "including Quarterfinal Champions (2021, 2024) and awards for outstanding arrangement, "
+            "choreography, vocal percussion, and video."
         ),
         "foundingDate": "2008",
         "genre": ["A Cappella", "Collegiate A Cappella", "Pop", "R&B"],
@@ -95,6 +97,22 @@ def music_group_jsonld() -> dict:
             "url": "https://www.nyu.edu/",
         },
         "sameAs": SAME_AS,
+        "award": [
+            "ICCA Quarterfinals Outstanding Arrangement 2025",
+            "ICCA Quarterfinals Outstanding Vocal Percussion 2025",
+            "ICCA Quarterfinals Quarterfinal Second Place 2025",
+            "ICCA Semifinals Outstanding Choreography 2024",
+            "ICCA Semifinals Semifinal Fourth Place 2024",
+            "ICCA Quarterfinals Quarterfinal Champions 2024",
+            "ICCA Quarterfinals Outstanding Arrangement 2024",
+            "ICCA Quarterfinals Outstanding Choreography 2024",
+            "ICCA Quarterfinals Outstanding Vocal Percussion 2024",
+            "ICCA Quarterfinals Outstanding Vocal Percussion 2023",
+            "ICCA Quarterfinals Quarterfinal Second Place 2023",
+            "ICCA Quarterfinals Outstanding Video 2021",
+            "ICCA Quarterfinals Quarterfinal Champions 2021",
+            "ICCA Quarterfinals Outstanding Arrangement 2021",
+        ],
         "contactPoint": [
             {
                 "@type": "ContactPoint",
@@ -113,8 +131,10 @@ def music_group_jsonld() -> dict:
         ],
         "knowsAbout": [
             "NYU a cappella",
+            "best NYU a cappella",
             "competitive collegiate a cappella",
             "ICCA",
+            "ICCA awards",
             "NYC a cappella booking",
             "a cappella performances",
         ],
@@ -166,13 +186,14 @@ def faq_jsonld(faqs: list[tuple[str, str]]) -> dict:
 NYC_FAQS = [
     (
         "What are the best NYC a cappella groups?",
-        "New York City has several collegiate and professional a cappella groups. Vocollision is a premier competitive group known for inventive, "
-        "diverse sets and ICCA recognition, blending classic pop with lesser-known artists.",
+        "New York City has several collegiate and professional a cappella groups. Vocollision is a premier competitive NYU group "
+        "known for inventive sets and multiple ICCA awards, including Quarterfinal Champions (2021, 2024) and outstanding awards "
+        "for arrangement, choreography, and vocal percussion.",
     ),
     (
         "Is Vocollision a competitive NYC a cappella group?",
-        "Yes. Vocollision is a competitive collegiate a cappella group based in New York City and has been "
-        "recognized by the International Championships of Collegiate A Cappella (ICCA).",
+        "Yes. Vocollision is a competitive collegiate a cappella group based in New York City at NYU and has been repeatedly "
+        "recognized by the International Championships of Collegiate A Cappella (ICCA), including championship and specialty awards.",
     ),
     (
         "How do I join an NYC a cappella group?",
